@@ -5,10 +5,12 @@ import (
 	"strings"
 )
 
-//Getcommand Recibe un comando proporcionado por el usuario, devuelve los distintos parámetros
+const slash int = 47
+
+//Getcommand Recieve command and return parameters
 func Getcommand(text string) (command []string, err error) {
 	text = strings.Trim(text, " ")
-	if text[0] != 47 {
+	if text[0] != slash {
 		return nil, errors.New("Commands must start with: '/' ")
 	}
 	s := strings.Split(text, " ")
